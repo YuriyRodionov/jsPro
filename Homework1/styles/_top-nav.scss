@@ -1,0 +1,31 @@
+.top-nav > .menu-list {
+    min-height: 51px;
+    font-size: 14px;
+    font-weight: 700;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.top-nav > .menu-list .menu-link {
+    text-transform: uppercase;
+    padding-bottom: 14px;
+}
+
+.top-nav > .menu-list .menu-link:hover {
+  border-bottom: 3px solid #ef5b70;
+}
+
+.top-nav > .menu-list .menu-item:not(:last-child) {
+    margin-right: 48px;
+}
+
+#menu-header-checkbox {
+    display: none;
+  }
+  
+#menu-header-checkbox ~ label {
+    display: none;
+  }
