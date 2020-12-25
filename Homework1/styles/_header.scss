@@ -1,0 +1,142 @@
+.header {
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    &__name {
+        text-transform: uppercase;
+        font-size: 27px;
+        & span {
+            color: $mainColor;
+            font-weight: 900;
+        }
+    }
+
+}
+
+.header * {
+    height: inherit;
+    display: flex;
+    align-content: center;
+}
+
+
+.search {
+    border-radius: 3px;
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+    height: 38px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #a4a4a4;
+    margin-left: 37px;
+
+}
+
+.search__browse {
+    background-color: #f6f6f6;
+    min-width: 87px;
+    align-items: baseline;
+    justify-content: space-evenly;
+    border-radius: 3px 0px 0px 3px;
+    cursor: pointer;
+    &:hover {
+        background-color: #E6E6E6;
+    }
+}
+
+.search__input {
+    height: inherit;
+    outline: none;
+    overflow: hidden;
+    border: none;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    min-width: 279px;
+    padding-left: 15px;
+}
+
+.search__button {
+    outline: none;
+    overflow: hidden;
+    border: none;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #a4a4a4;
+    padding: 12px;
+    cursor: pointer;
+}
+
+
+.cart {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.my-account {
+    background-color: $mainColor;
+    height: 38px;
+    margin-left: 26px;
+    min-width: 130px;
+    justify-content: center;
+    align-items: baseline;
+    & a {
+        align-items: baseline;
+        font-size: 15px;
+        line-height: 32px;
+        font-weight: 400;
+        color: #ffffff;
+        &:hover {
+            text-decoration: underline;
+        }
+        > i {
+            padding-left: 5px;
+        }
+    }
+}
+
+
+
+.header-line {
+    border-bottom: 1px solid #ececec;
+}
+
+  .why {
+    background-color: #f8f3f4;
+    height: 148px;
+    &_content {
+        display: flex;
+        height: inherit;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          font-size: 24px;
+          line-height: 20px;
+          font-weight: 900;
+          text-transform: uppercase;
+          color: $mainColor;
+          }
+          a {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #636363;
+          }
+          a:hover {
+            color: $mainColor;
+          }
+      }
+    }
+
+    
