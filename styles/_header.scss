@@ -150,7 +150,11 @@
             font-weight: 700; }
           & span {
             background-color: transparent;
-            position: unset; }
+            position: unset;
+            border: none;
+           
+            color: #c0c0c0;
+            cursor: pointer;  }
           & p {
             color: #f16d7f;
             font-size: 12px;

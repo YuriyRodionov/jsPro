@@ -232,6 +232,9 @@ a {
 .cart__menu_items span {
   background-color: transparent;
   position: unset;
+  border: none;
+  color: #c0c0c0;
+  cursor: pointer;
 }
 
 .cart__menu_items p {

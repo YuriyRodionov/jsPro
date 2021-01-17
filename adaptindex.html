@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+<div id="app">
     <div class="header container">
 		<div class="header-left">
             <a href="index.html" class="logo">
@@ -20,31 +20,12 @@
         
         <form class="search" method="get">
 			<div class="search__browse">Browse <i class="fas fa-caret-down"></i></div>
-			<label>
-            <input type="text" class="search__input" name="search" placeholder="Search for item...">
-			<button class="search__button"><i class="fas fa-search"></i></button>
-			</label>
+			<search v-on:search="filterGoods"></search>
         </form>
         </div>
 
 		<div class="header-right">
-			<div class="cart">
-				<label id="cartt">
-					<input type="checkbox" name="cart" class="input">
-					<img src="img/cart.png" alt="cart" /><span id="countLength">0</span>
-					<div class="cart__menu">
-						<div class="cart__menu-block">
-						<!-- cartBasket -->
-						</div>
-						<div class="cart__menu-cent">
-						<h2>TOTAL</h2>
-						<span class="cart__menu-price" id="cartCent"></span>
-						</div>
-					<button class="cart__menu-btn">Checkout</button>
-					<button class="cart__menu-btn">Go to cart</button>
-					</div>
-					</label>
-			</div>
+			<cart :element="cartElement"><cart-item v-on:delete="deleteEl"></cart-item></cart>
 
 			<div class="my-account"><a href="#">My Account <i class="fas fa-caret-down"></i></a></div>
 		</div>
@@ -93,11 +74,7 @@
 		<h2 class="fetured__h2">Fetured Items</h2>
 		<p class="fetured__p">Shop for items based on what we featured in this week</p>
 
-		<div class="fetured-items" id="aaa">
-
-
-
-		</div>
+		<catalog :filter="searchInfo"><catalog-item v-on:pluscart="addCart"></catalog-item></catalog>
 
 		<div class="fetured__button">
 			<button>Browse All Product<i class="fas fa-long-arrow-alt-right"></i></button>
@@ -245,6 +222,8 @@
 			</div>
 		  </div>
 		</div>
+</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
