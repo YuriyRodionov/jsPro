@@ -17,10 +17,10 @@ Vue.component("search", {
   }
 });
 
-Vue.component("catalog", {
+/*Vue.component("catalog", {
   template: `
     <div class="fetured-items" id="aaa">
-      <catalog-item v-for="(elem, i) in filteredGoods" :id="i" :title="elem.title" :price="elem.Price" :img="elem.img"></catalog-item>
+      <catalogitem v-for="(elem, i) in filteredGoods" :id="i" :title="elem.title" :price="elem.Price" :img="elem.img"></catalogitem>
 		</div>
   `,
   props: ["filter"],
@@ -38,22 +38,20 @@ Vue.component("catalog", {
     
   },
   mounted() {
-    fetch(
-      'https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/responses/products.json'
-      )
+    fetch('/goods')
     .then((response) => response.json())
     .then((res) => this.store = res)
     }
-});
+});*/
 
-Vue.component("catalog-item", {
+/*Vue.component("catalogitem", {
   template: `
   <div class="item">
     <img class="item__image" :src="img" alt="item-image">
     <div class="item__hover">
       <div>
         <img src="img/featured_cart.png" alt="cart">
-        <p :id="id" v-on:click="addToCart(id)">Add to Cart</p>
+        <button :id="id" v-on:click="addToCart(id)">Add to Cart</button>
       </div>
     </div>
     <p class="item__title">{{ title }}</p>
@@ -62,13 +60,20 @@ Vue.component("catalog-item", {
   `,
   props: ["title", "price", "img", "id"],
   methods: {
-    addToCart() {
-      this.$emit("pluscart", this.id)
+    addToCart(id) {
+      /*fetch("/addToCart", {
+        method: 'post',
+        body: JSON.stringify({}),
+        headers: {
+        'content-type': 'application/json'
+    }
+      })
+      this.$emit("pluscart", id)
     }
   }
-})
+})*/
 
-Vue.component("cart", {
+/*Vue.component("cart", {
   template: `
   <div class="cart">
     <label id="cartt">
@@ -80,8 +85,22 @@ Vue.component("cart", {
         <!-- cartBasket -->
         
           <h4 v-if="cart.length === 0">Корзина пуста</h4>
-          <cart-item v-else class="cart__menu_items" v-for="el in cart"></cart-item>
-        </div>
+          <div v-else class="cart__menu_items" v-for="el in cart">
+              <div :id = "id">
+            
+              <img :src="img" alt="carts" />
+              <div class="cart__menu_items-content">
+                <h2>{{ el.title }}</h2>
+                
+                <p>1 x $ {{el.price}}</p>
+              </div>
+              <span v-on:click="deleteItem(id)">
+                <i class="fas fa-times-circle"></i>
+              </span>
+            </div>
+          </div>
+       
+      </div>
         <div class="cart__menu-cent">
           <h2>TOTAL</h2>
           <span class="cart__menu-price" id="cartCent">{{ summCart }}</span>
@@ -92,13 +111,15 @@ Vue.component("cart", {
     </label>
   </div>
   `,
-  props: ["element"],
-  data() {
-    return {
-      cart: []
-    } 
-  },
+  props: ["cart"],
+  
+  
   computed: {
+    renderCart() {
+      fetch('/cart')
+    .then((response) => response.json())
+    .then((res) => this.cart = res)
+    },
     summCart() {
       return this.cart.reduce((acc, el) => acc + el.Price, 0)
     }
@@ -108,9 +129,9 @@ Vue.component("cart", {
       this.cart.push(this.element)
     }
   }
-})
+})*/
 
-Vue.component("cart-item", {
+/*Vue.component("cart-item", {
   template: `
   <div :id = "id">
         
@@ -131,43 +152,61 @@ Vue.component("cart-item", {
       this.$emit("del", this.id)
     }
   }
-})
+})*/
 
 const app = new Vue({
   el: "#app",
   data: {
-    cartElement: {},
+    cart: [],
+    store: [],
     searchInfo: ""
     
   },
   computed: {
+    
     summCart() {
       return this.cart.reduce((acc, el) => acc + el.Price, 0)
 
     }
   },
+  
   methods: {
-    filterGoods(search) {
+    filteredGoods(search) {
       this.searchInfo = search;
       
-      //this.store = this.searchLine ? this.store.filter(({title}) => title.includes(this.searchLine)): this.store;
+      this.store = this.searchInfo ? this.store.filter(({title}) => title.includes(this.searchInfo)): this.store;
     },
-    addCart(pluscart) {
-      this.cartElement = pluscart;
-      //this.cart.push(i);
+    addCart(elem) {
+     // this.cart = pluscart;
+      //this.cart.push(id);
+      /*const searchItem = this.cart.find((el) => {
+        return el.id === pluscart.id
+      })
+      if (searchItem) searchItem.count++
+      else this.cart.push(pluscart)*/
+      
+        fetch("/addToCart", {
+          method: 'post',
+          body: JSON.stringify(elem),
+          headers: {
+          'content-type': 'application/json'
+      }
+        }).then(fetch('/parampampam')
+        .then((response) => response.json())
+        .then((res) => this.cart = res))
+
     },
-    deleteEl(del) {
-      this.cartElement = del;
-      //this.cart.push(i);
+    deleteItem(id) {
+      this.cart.splice(id, 1);
     }
-  }
-  /*mounted() {
-      fetch(
-        'https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/responses/products.json'
-    )
+    
+  },
+  mounted() {
+    fetch('/goods')
   .then((response) => response.json())
   .then((res) => this.store = res)
-  }*/
+  }
+  
 });
 
 
