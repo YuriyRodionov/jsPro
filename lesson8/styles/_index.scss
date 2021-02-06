@@ -1,0 +1,236 @@
+.slider {
+    background: no-repeat top url(../img/topHeaderBack.png);
+    min-height: 613px;
+    display: flex;
+    background-size: 41%;
+    background-position-x: 81%;
+}
+
+.slider-content {
+    margin-top: 224px;
+    padding-left: 12px;
+    border-left: 12px solid $mainColor;
+    height: fit-content;
+}
+.up {
+
+    font-size: 60px;
+    line-height: 0.7;
+    font-weight: 900;
+}
+
+.down {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 0.6;
+}
+
+.slider-content span {
+    color: $mainColor;
+}
+
+.offers {
+    margin-top: 98px;
+    height: 823px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.offers__hotdeal {
+    position: relative;
+}
+
+.offers__text {
+    position: absolute;
+    margin-top: 26px;
+    font-size: 18px;
+    min-height: 82px;
+    width: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+    line-height: 1.2;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    background-color: #ffffff;
+}
+
+.offers__text > span {
+    font-size: 30px;
+    color: $mainColor;
+}
+
+.fetured {
+  margin-top: 100px;
+}
+.fetured__h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900; }
+
+.fetured__p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 54px;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  color: #9f9f9f; }
+
+.fetured-items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.item {
+  position: relative;
+  height: 364px;
+  width: 263px;
+  margin: 0 0 39px 0;
+  background-color: #FFFFFF;
+  cursor: pointer; }
+
+.item:hover {
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.16); }
+
+.item__image {
+  max-height: 279px;
+  width: 100%;
+  background-color: #E9E9E9;
+  object-fit: cover;
+ }
+
+.item__image:hover ~ .item__hover {
+  display: block; }
+
+.item__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 13px 0 0 15px; }
+
+.item__price {
+  font-size: 16px;
+  font-weight: 900;
+  color: #f16d7f;
+  padding: 13px 0 0 15px; }
+
+.item__hover {
+  display: none;
+  height: 279px;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  background-color: rgba(59, 59, 59, 0.65); }
+
+.item__hover:hover {
+  display: block; }
+
+.item__hover > div {
+  height: 39px;
+  width: 123px;
+  margin: 94px auto 0;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px 0 10px; }
+
+.item__hover > div:active {
+  background-color: rgba(59, 59, 59, 0.65); }
+
+.item__hover > div > p {
+  font-size: 13px;
+  font-weight: 900;
+  color: #FFFFFF; }
+
+.item__hover > div > p:hover {
+  text-decoration: underline; }
+
+.fetured__button {
+  text-align: center; }
+
+.fetured__button > button {
+  height: 48px;
+  width: 212px;
+  background-color: #f16d7f;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer; }
+
+.fetured__button > button:hover {
+  text-decoration: underline; }
+
+.fetured__button > button:active {
+  background-color: #E15D6F; }
+
+.fetured__button > button:focus {
+  outline: none; }
+
+.fetured__button > button > i {
+  margin: 0 0 0 10px; }
+
+.offer {
+  margin-top: 113px;
+  display: flex; }
+
+.offer-image {
+  height: fit-content;
+  max-width: 767px;
+  
+  background-repeat: no-repeat;
+  background-size: 115%;
+  position: relative; }
+
+.offer-image img {
+  height: 100%;
+  width: 100%; }
+
+.offer-image-title {
+  position: absolute;
+  padding: 146px 0 0 39px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  top: 0; }
+
+.offer-image__h2 {
+  font-size: 54px; }
+
+.offer-image__h2 > span {
+  color: #f16d7f; }
+
+.offer-image__p {
+  font-size: 32px; }
+
+.offer-info {
+  background-color: #222224;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: calc(100% - 767px); }
+
+.offer-row {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.offer-info__image {
+  align-self: baseline; }
+
+.offer-info__h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;}
+
+.offer-info__p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #FFFFFF;
+  max-width: 219px;}
