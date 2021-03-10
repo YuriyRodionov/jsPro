@@ -1,0 +1,42 @@
+[
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature1.jpg",
+        "title": "Mango-People T-shirt",
+        "Price": 50
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature2.jpg",
+        "title": "Abrakadabra trousers",
+        "Price": 60
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature3.jpg",
+        "title": "Some shirt",
+        "Price": 70
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature4.jpg",
+        "title": "Gentleman's hat",
+        "Price": 80
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature5.jpg",
+        "title": "Musician's cap",
+        "Price": 90
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature6.jpg",
+        "title": "Mango-People T-shirt",
+        "Price": 100
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature7.jpg",
+        "title": "Old pants",
+        "Price": 150
+    },
+    {
+        "img": "https://raw.githubusercontent.com/YuriyRodionov/ProfLayout/main/site/img/feature8.jpg",
+        "title": "Sport shorts",
+        "Price": 120
+    }
+]

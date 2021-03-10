@@ -1,0 +1,4 @@
+[1015/210659.706:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1023/224820.795:ERROR:crashpad_client_win.cc(521)] CreateProcess: Error (0x3AFC) while retrieving error. (0x5AF)
+[1101/233357.778:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1101/234404.399:ERROR:process_info.cc(359)] UncheckedAllocate
