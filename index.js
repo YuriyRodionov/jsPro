@@ -29,13 +29,34 @@ app.listen(3000, () => {
     console.log("OK")
 })*/
 
-const express = require('express');
-const fs = require('fs');
+
+//import './styles/style.css';
+//require("./js/script.js")
+
+
+
+//import './styles/style.css';
+
+//require('./js/script')
+
+
+
+const express = require("express");
+const fs = require("fs");
+const path = require('path')
 const bodyParser = require('body-parser');
 const app = express();
 
+const PORT = process.env.PORT || 4200;
+
+// Пробовал разные пути прописывать, результат тот же
+app.use(express.static(path.resolve(__dirname, 'dist')));
+
+
 app.use(bodyParser.json());
-app.use(express.static('.'));
+
+
+
 
 app.get('/goods', (req, res) => {
     fs.readFile('./responses/products.json', 'utf-8', (err, data) => {
@@ -49,7 +70,7 @@ app.get('/goods', (req, res) => {
     });
 });
 
-app.get('/parampampam', (req, res) => {
+app.get('/cart', (req, res) => {
     fs.readFile('./responses/cart.json', 'utf-8', (err, data) => {
         if(!err){
             res.send(data);
@@ -59,7 +80,7 @@ app.get('/parampampam', (req, res) => {
             res.send(JSON.stringify({}))
         }
     });
-});
+})
 
 
 app.post('/addToCart', (req, res) => {
@@ -79,8 +100,28 @@ app.post('/addToCart', (req, res) => {
     });
 });
 
+app.delete('/cart/:id', (req, res) => {
+    const item = req.body;
+    fs.readFile('./responses/cart.json', 'utf-8', (err, data) => {
+      
+        const good = JSON.parse(data)
+        good.splice(item, 1)
+        fs.writeFile('./responses/cart.json', JSON.stringify(good), err => {
+            if(!err){
+                res.json({res: true});
+                console.log(res)
+            }
+            else {
+                res.json({res: false, err});
+                console.log(err)
+            }
+        });
+    })
+})
 
 
-app.listen(3000, () => {
-    console.log('Server start on port 3000');
-});
+app.listen(PORT, () => {
+    console.log(`сервер запушен на ${PORT} порту`)
+})
+
+

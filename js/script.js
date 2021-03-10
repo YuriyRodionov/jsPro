@@ -1,3 +1,8 @@
+
+import Vue from 'vue';
+
+
+
 Vue.component("search", {
   template: `
   <label>
@@ -7,7 +12,7 @@ Vue.component("search", {
   `,
   data() {
     return {
-      searchLine: '',
+      searchLine: ''
     }
   },
   methods: {
@@ -15,7 +20,7 @@ Vue.component("search", {
       this.$emit("search", this.searchLine);
   }
   }
-});
+})
 
 /*Vue.component("catalog", {
   template: `
@@ -166,8 +171,8 @@ const app = new Vue({
     
     summCart() {
       return this.cart.reduce((acc, el) => acc + el.Price, 0)
-
-    }
+    },
+    
   },
   
   methods: {
@@ -175,6 +180,23 @@ const app = new Vue({
       this.searchInfo = search;
       
       this.store = this.searchInfo ? this.store.filter(({title}) => title.includes(this.searchInfo)): this.store;
+    },
+
+    fetchCart() {
+      (fetch('/cart')
+        .then((response) => response.json())
+        .then((res) => this.cart = res))
+    },
+    deleteItem(id) {
+      this.cart.splice(id, 1)
+      fetch(`/cart/${id}`, {
+        method: 'delete'
+    }).then(() => {
+      console.log('removed');
+   }).catch(err => {
+     console.error(err)
+   });
+    
     },
     addCart(elem) {
      // this.cart = pluscart;
@@ -191,21 +213,35 @@ const app = new Vue({
           headers: {
           'content-type': 'application/json'
       }
-        }).then(fetch('/parampampam')
-        .then((response) => response.json())
-        .then((res) => this.cart = res))
+        })
+        .then((response) => response.json()).then(this.fetchCart);
+        
 
     },
-    deleteItem(id) {
-      this.cart.splice(id, 1);
-    }
     
+    cartApi(url, method, data = []){
+      fetch(url, { method: method,
+          headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+          },
+          body: JSON.stringify(data)
+      }).then(el => {
+          return el.json()
+      })
+  }
   },
   mounted() {
     fetch('/goods')
   .then((response) => response.json())
-  .then((res) => this.store = res)
+  .then((res) => this.store = res),
+ 
+    fetch('/cart')
+      .then((response) => response.json())
+      .then((res) => this.cart = res)
   }
+            
+  
+  
   
 });
 
@@ -344,3 +380,4 @@ search.addEventListener("click", () => {
 
        //} 
 }*/
+
